@@ -13,23 +13,27 @@ MaxHeap::~MaxHeap() {
     }
 }
 
+void MaxHeap::buildheap() {
+    
+}
+
 bool MaxHeap::insert(int key) {
     bool inserted = false;
-    inserthelper(key, m_root);
+//    inserthelper(key, m_root);
     return inserted;
 }
 
-void MaxHeap::inserthelper(int key, Node *root) {
-    Node *newLeaf = new Node();
-    newLeaf->setTag(1);
-    newLeaf->setKey(key);
+//void MaxHeap::inserthelper(int key, Node *root) {
+//    Node *newLeaf = new Node();
+//    newLeaf->setTag(1);
+//    newLeaf->setKey(key);
 //    Node *temp = root;
 
     // No nodes in maxHeap
     // @return maxHeap with one leaf node
-    if (root == nullptr) {
-        m_root = newLeaf;
-    }
+//    if (root == nullptr) {
+//        m_root = newLeaf;
+//    }
     // One leaf node in maxHeap
     // Make internal node, with an old leaf and new leaf
 //    else if (temp->tag() == 1) {
@@ -153,47 +157,41 @@ void MaxHeap::inserthelper(int key, Node *root) {
 //        }
 //    }
 //    return root;
-}
-
-bool MaxHeap::delete(int key) {
-    bool deleted = false;
-    deleted = deletehelper(key, m_root);
-    return deleted;
-}
+//}
 
 bool MaxHeap::deletemin() {
-    if (m_root == nullptr) {
+//    if (m_root == nullptr) {
         return false;
-    } else {
-        int key = Findmin()->key();
-        return deletehelper(key, m_root);
-    }
+//    } else {
+//        int key = findmin()->key();
+//        return deletehelper(key, m_root);
+//    }
 }
 
-bool MaxHeap::deleteMax() {
-    if (m_root == nullptr) {
+bool MaxHeap::deletemax() {
+//    if (m_root == nullptr) {
         return false;
-    } else {
-        int key = FindMax()->key();
-        return deletehelper(key, m_root);
-    }
+//    } else {
+//        int key = findmax()->key();
+//        return deletehelper(key, m_root);
+//    }
 }
 
-bool MaxHeap::deletehelper(int key, Node *root) {
-    bool deleted = false;
-
-    if (root == nullptr) {
-        deleted = false;
-    }
+//bool MaxHeap::deletehelper(int key, Node *root) {
+//    bool deleted = false;
+//
+//    if (root == nullptr) {
+//        deleted = false;
+//    }
     // maxHeap has one node
-    else if (root->tag() == 1) {
-        delete root;
+//    else if (root->tag() == 1) {
+//        delete root;
 //        root = nullptr;
-        deleted = true;
-    }
+//        deleted = true;
+//    }
 //    else {
 //        //Parent of node to delete
-//        Node *parent = Find(key)->parent();
+//        Node *parent = find(key)->parent();
 //
 //        if (parent->first() != nullptr)
 //        if (key == parent->first()->key()) { delete parent->first(); }
@@ -202,100 +200,97 @@ bool MaxHeap::deletehelper(int key, Node *root) {
 //        if (parent->third() != nullptr)
 //        if (key == parent->third()->key()) { delete parent->third(); }
 //    }
-    return deleted;
-}
+//    return deleted;
+//}
 
-Node *MaxHeap::Findmin() {
-    if (m_root == nullptr) {
+Node *MaxHeap::findmin() {
+//    if (m_root == nullptr) {
         return m_root;
-    } else {
-        return Findminhelper(m_root);
-    }
-}
-
-Node *MaxHeap::Findminhelper(Node *root) {
-    if (root->tag() == 1) {
-        return root;
-    }
-//    else if (root->first() == nullptr) {
-        return root;
 //    } else {
-//        return Findminhelper(root->first());
+////        return findminhelper(m_root);
 //    }
 }
 
-Node *MaxHeap::FindMax() {
-    if (m_root == nullptr) {
+//Node *MaxHeap::findminhelper(Node *root) {
+////    if (root->tag() == 1) {
+////        return root;
+////    }
+////    else if (root->first() == nullptr) {
+//        return root;
+////    } else {
+////        return findminhelper(root->first());
+////    }
+//}
+
+Node *MaxHeap::findmax() {
+//    if (m_root == nullptr) {
         return m_root;
-    } else {
-        return Findminhelper(m_root);
-    }
+//    } else {
+//        return findminhelper(m_root);
+//    }
 }
 
-Node *MaxHeap::Findminhelper(Node *root) {
-    if (root->tag() == 1) {
-        return root;
-    }
+//Node *MaxHeap::findmaxhelper(Node *root) {
+//    if (root->tag() == 1) {
+//        return root;
+//    }
 //    else if ((root->third() == nullptr) && (root->tag() == 1)) {
 //        return root;
 //    }
 //    else if (root->third() != nullptr) {
-//        return Findminhelper(root->third());
+//        return findminhelper(root->third());
 //    }
 //    else if (root->second() != nullptr) {
-//        return Findminhelper(root->second());
+//        return findminhelper(root->second());
 //    }
 //    else if (root->first() != nullptr) {
-//        return Findminhelper(root->first());
+//        return findminhelper(root->first());
 //    }
-    return root;
-}
+//    return root;
+//}
 
-Node *MaxHeap::Find(int key) {
-    return Findhelper(key, m_root);
-}
-
-Node *MaxHeap::Findhelper(int key, Node *root) {
-    if (root->tag() == 1) {
-        return root;
-    }
+//Node *MaxHeap::findhelper(int key, Node *root) {
+//    if (root->tag() == 1) {
+//        return root;
+//    }
 //    else {
 //        Node *temp = root;
 //        if (key < temp->minSecond()) {
-//            Findhelper(key, temp->first());
+//            findhelper(key, temp->first());
 //        } else if (temp->minThird() != -1 && key >= temp->minThird()) {
-//            Findhelper(key, temp->third());
+//            findhelper(key, temp->third());
 //        } else {
-//            Findhelper(key, temp->second());
+//            findhelper(key, temp->second());
 //        }
 //    }
-    return root;
-}
+//    return root;
+//}
 
-void MaxHeap::Levelorder() {
+void MaxHeap::levelorder() {
     if (m_root == nullptr) {
-        std::cout << "maxHeap is empty.\n";
+        std::cout << "Max heap is empty.\n";
     } else {
-        Levelorderhelper(m_root);
+//        levelorderhelper(m_root);
     }
 }
 
-void MaxHeap::Levelorderhelper(Node *root) {
-    if (root != nullptr) {
-        std::queue<Node*> queue;
+//void MaxHeap::levelorderhelper(Node *root) {
+//    if (root != nullptr) {
+//        std::queue<Node*> queue;
         // Enqueue all nodes from level 0 to last level
-        queue.push(root);
-        while (!queue.empty()) {
-            Node *temp = queue.front();
+//        queue.push(root);
+//        while (!queue.empty()) {
+//            Node *temp = queue.front();
             // Print all leaves
-            if (temp->tag() == 1) {
-                std::cout << " " << temp->key();
-            }
-            queue.pop();
+//            if (temp->tag() == 1) {
+//                std::cout << " " << temp->key();
+//            }
+//            queue.pop();
+//
+//            if (temp->first()  != nullptr) { queue.push(temp->first()); }
+//            if (temp->second() != nullptr) { queue.push(temp->second()); }
+//            if (temp->third()  != nullptr) { queue.push(temp->third()); }
+//        }
+//    }
+//}
 
-            if (temp->first()  != nullptr) { queue.push(temp->first()); }
-            if (temp->second() != nullptr) { queue.push(temp->second()); }
-            if (temp->third()  != nullptr) { queue.push(temp->third()); }
-        }
-    }
-}
