@@ -8,6 +8,9 @@
 #include "MaxHeap.h"
 #include <fstream>
 #include <iostream>
+#include <string>
+
+
 
 int main(int argc, char **argv) {
     std::string heaptype = argv[1];
@@ -15,31 +18,39 @@ int main(int argc, char **argv) {
         std::cout << "To run program type:\n ./Lab07 max data.txt for max heap\nor ./Lab07 min data.txt for min heap\n\n";
         return 0;
     }
+   
+    
     Heap *heap;
-    // Reads data from a file
-    int key = -1;
+    int arrSize = 0;
+    int number = -1;
+//    int *data;
+    
+    // Read data from a file
     std::ifstream inputFile;
     inputFile.open(argv[2]);
     if (!inputFile) {
-        std::cout << "Error reading the input file.\n" << argv[2] << "\n";
         inputFile.close();
+        std::cout << "Error reading the input file.\n";
+        return 0;
     } else {
-        if (heaptype == "min") {
-             heap = new MinHeap();
-            while(inputFile >> key) {
-//                heap->insert();
-            }
-        } else if (heaptype == "max") {
-             heap = new MaxHeap();
-            while(inputFile >> key) {
-//                heap->buildheap(key);
-            }
+        while(inputFile >> number) {
+            arrSize++;
         }
-//        while(inputFile >> key) {
-//            heap->buildheap(key);
-//        }
+        int data[arrSize];
+        
+        std::cout << "Data.txt elements:";
+        inputFile.clear();
+        inputFile.seekg(0, std::ios::beg);
+        for (int i=0; i<arrSize; i++) {
+            inputFile >> number;
+            std::cout << " " << number;
+            data[i] = number;
+        }
     }
     inputFile.close();
+
+    
+    
 
     // User interacation
     int choice = -1;
@@ -73,7 +84,10 @@ int main(int argc, char **argv) {
 //                    std::cout << minHeap->findmin()->key() << " has been deleted from minHeap.\n";
 //                }
 //                break;
-//                case 3:
+                //  // Reads data from a file
+//                int size = 0;
+//                int number = -1;
+//            case 3:
 //                if (minHeap->deletemin()) {
 //                    std::cout << minHeap->findmin()->key() << " has been deleted from minHeap.\n";
 //                }
