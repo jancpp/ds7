@@ -10,34 +10,40 @@
 #include <iostream>
 #include <string>
 
-
-
 int main(int argc, char **argv) {
+    // Check for correct terminal input
     std::string heaptype = argv[1];
     if ((argc != 3) && ((heaptype != "min") || (heaptype != "max")) ) {
         std::cout << "To run program type:\n ./Lab07 max data.txt for max heap\nor ./Lab07 min data.txt for min heap\n\n";
         return 0;
     }
-   
     
     Heap *heap;
+    if (heaptype == "min") {
+        heap = new MinHeap();
+    } else if (heaptype == "max") {
+        heap = new MaxHeap();
+    } else {
+        std::cout << "Wrong heap type was entered. (min/max)\n";
+        return 0;
+    }
+    
     int arrSize = 0;
     int number = -1;
-//    int *data;
     
-    // Read data from a file
+    // Read data from a file into array
     std::ifstream inputFile;
     inputFile.open(argv[2]);
     if (!inputFile) {
         inputFile.close();
         std::cout << "Error reading the input file.\n";
+        delete heap;
         return 0;
     } else {
         while(inputFile >> number) {
             arrSize++;
         }
         int data[arrSize];
-        
         std::cout << "Data.txt elements:";
         inputFile.clear();
         inputFile.seekg(0, std::ios::beg);
@@ -46,15 +52,16 @@ int main(int argc, char **argv) {
             std::cout << " " << number;
             data[i] = number;
         }
+        inputFile.close();
+        heap->buildheap(data, arrSize);
     }
-    inputFile.close();
+
 
     
     
 
     // User interacation
     int choice = -1;
-    int inputkey = 0;
 
     while (choice != 7) {
         std::cout << "\n............................................\n\n";
@@ -137,6 +144,6 @@ int main(int argc, char **argv) {
         }
     }
 
-    
+    delete heap;
     return 0;
 }

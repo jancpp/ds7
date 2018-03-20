@@ -13,7 +13,7 @@ MaxHeap::~MaxHeap() {
     }
 }
 
-void MaxHeap::buildheap() {
+void MaxHeap::buildheap(int data[], int size) {
     
 }
 

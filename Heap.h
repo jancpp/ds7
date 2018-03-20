@@ -15,6 +15,8 @@ class Heap {
 public:
     virtual ~Heap() {}
     
+    virtual void buildheap(int data[], int size) = 0;
+    
     virtual bool insert(int key) = 0;
     
     virtual bool deletemin()  = 0;

@@ -54,7 +54,7 @@ public:
     // @pre:    No three
     // @Post:   Unsorted full tree
     // @Return: Node
-    void buildheap();
+    void buildheap(int data[], int size);
     
     // @pre:    5 - minHeap
     // @Post:   New node inserted into the minHeap:    as root if empty,

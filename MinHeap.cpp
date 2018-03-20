@@ -13,7 +13,7 @@ MinHeap::~MinHeap() {
     }
 }
 
-void MinHeap::buildheap() {
+void MinHeap::buildheap(int data[], int size) {
     
 }
 

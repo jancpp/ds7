@@ -16,12 +16,8 @@ class MaxHeap: public Heap {
 
 private:
 	Node *m_root;
-//    
-//    // @pre:    5 - maxHeap
-//    // @post:   Unsorted tree
-//    // @return: None
-//    void buildheap();
-//    
+
+//
 //    // @pre:    5 - maxHeap
 //    // @post:   Inserting node in root
 //    // @return: Node pointer of element to be inserted
@@ -59,7 +55,7 @@ public:
     // @pre:    5 - maxHeap
     // @post:   Unsorted tree
     // @return: None
-    void buildheap();
+    void buildheap(int data[], int size);
     
 	// @pre:    Binary search maxHeap
 	// @Post:   New node inserted into the maxHeap:    as root if empty,
