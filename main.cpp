@@ -37,29 +37,21 @@ int main(int argc, char **argv) {
     if (!inputFile) {
         inputFile.close();
         std::cout << "Error reading the input file.\n";
-        // delete heap;
+         delete heap;
         return 0;
     } else {
-        while(inputFile >> number) {
-            arrSize++;
-        }
-        int data[arrSize];
+        int data[250];
         std::cout << "Data.txt elements:";
-        // inputFile.clear();
-        // inputFile.seekg(0, std::ios::beg);
-        for (int i=0; i<arrSize; i++) {
-            inputFile >> number;
+        while(inputFile >> number) {
             std::cout << " " << number;
-            data[i] = number;
+            data[arrSize] = number;
+            arrSize++;
         }
         inputFile.close();
         heap->buildheap(data, arrSize);
     }
-
-
-
-
-    heap->levelorder(); //TODO
+    
+    heap->levelorder(); //TODO remove
 
     // User interacation
     int choice = -1;
@@ -137,12 +129,13 @@ int main(int argc, char **argv) {
                 break;
                 case 7:
                 std::cout << "Bye bye!\n";
+                delete heap;
                 return (0);
             default:
                 std::cout << "\nError: Wrong input.\n\n";
         }
     }
 
-    // delete heap;
+     delete heap;
     return 0;
 }
