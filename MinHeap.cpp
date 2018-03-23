@@ -7,7 +7,7 @@ Date:   3/12/2018
 #include "MinHeap.h"
 
 MinHeap::MinHeap(): m_size(0) {
-    for (int i=0; i<=sizeof(m_array); i++) {
+    for (size_t i=0; i<=sizeof(m_array); i++) {
         m_array[i] = -1;
     }
 }
@@ -19,7 +19,7 @@ MinHeap::~MinHeap() {
 
 void MinHeap::buildheap(int data[], int size) {
     std::cout << "\nIn min's build heap, size:" << size << "\n";
-    
+
     for (int i=0; i<size; i++) {
         m_array[i] = data[i];
     }
@@ -292,9 +292,9 @@ void MinHeap::levelorder() {
     int levels = 1;
     int newLevel = 0;
 //    int newNumber = 0;
-    
+
 //    std::cout << m_array[0] << "\n";
-    for (int i=0; i<sizeof(m_array); i++) {
+    for (int i=0; i<m_size; i++) {
         if(m_array[i] != -1) {
           std::cout << m_array[i] << " ";
             if ((newLevel == i) && ((i%5 == 0) || (i == 5))) {
@@ -306,7 +306,7 @@ void MinHeap::levelorder() {
                 std::cout << "- ";
             }
         }
-        
+
     }
 }
 
@@ -329,5 +329,3 @@ bool MinHeap::isLeaf(int index) {
     }
     return isleaf;
 }
-
-

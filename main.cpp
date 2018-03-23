@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
         std::cout << "To run program type:\n ./Lab07 max data.txt for max heap\nor ./Lab07 min data.txt for min heap\n\n";
         return 0;
     }
-    
+
     Heap *heap;
     if (heaptype == "min") {
         heap = new MinHeap();
@@ -27,17 +27,17 @@ int main(int argc, char **argv) {
         std::cout << "Wrong heap type was entered. (min/max)\n";
         return 0;
     }
-    
+
     int arrSize = 0;
     int number = -1;
-    
+
     // Read data from a file into array
     std::ifstream inputFile;
     inputFile.open(argv[2]);
     if (!inputFile) {
         inputFile.close();
         std::cout << "Error reading the input file.\n";
-        delete heap;
+        // delete heap;
         return 0;
     } else {
         while(inputFile >> number) {
@@ -45,8 +45,8 @@ int main(int argc, char **argv) {
         }
         int data[arrSize];
         std::cout << "Data.txt elements:";
-        inputFile.clear();
-        inputFile.seekg(0, std::ios::beg);
+        // inputFile.clear();
+        // inputFile.seekg(0, std::ios::beg);
         for (int i=0; i<arrSize; i++) {
             inputFile >> number;
             std::cout << " " << number;
@@ -57,10 +57,10 @@ int main(int argc, char **argv) {
     }
 
 
-    
-    
+
+
     heap->levelorder(); //TODO
-    
+
     // User interacation
     int choice = -1;
 
@@ -142,7 +142,7 @@ int main(int argc, char **argv) {
                 std::cout << "\nError: Wrong input.\n\n";
         }
     }
-    
-    delete heap;
+
+    // delete heap;
     return 0;
 }
