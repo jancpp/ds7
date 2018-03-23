@@ -53,7 +53,7 @@ public:
     // @pre:    5 - maxHeap
     // @post:   Unsorted tree
     // @return: None
-    void buildheap(int data[], int size);
+    void buildheap();
     
 	// @pre:    Binary search maxHeap
 	// @Post:   New node inserted into the maxHeap:    as root if empty,

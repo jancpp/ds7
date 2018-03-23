@@ -18,7 +18,7 @@ public:
 //    Heap();
     virtual ~Heap() {}
     
-    virtual void buildheap(int data[], int size) = 0;
+    virtual void buildheap() = 0;
     
     virtual bool insert(int key) = 0;
     

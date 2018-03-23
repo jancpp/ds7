@@ -5,6 +5,8 @@ Date:   3/12/2018
 */
 
 #include "MinHeap.h"
+#include <fstream>
+#include <iostream>
 
 MinHeap::MinHeap(): m_size(0) {
     for (size_t i=0; i<sizeof(m_array); i++) {
@@ -17,15 +19,30 @@ MinHeap::~MinHeap() {
 //    }
 }
 
-void MinHeap::buildheap(int data[], int size) {
-    std::cout << "\nIn min's build heap, size:" << size << "\n";
+void MinHeap::buildheap() {
+    // Read data from a file into array
+    std::ifstream inputFile;
+    int number = -1;
+    int arrSize = 0;
+    inputFile.open("data.txt");
+    if (!inputFile) {
+        //        inputFile.close();
+        std::cout << "Error reading the input file.\n";
+    } else {
+        
+        std::cout << "Data.txt elements:";
+        while(inputFile >> number) {
+            std::cout << " " << number;
+            m_array[arrSize] = number;
+            arrSize++;
+        }
+        inputFile.close();
+        std::cout << "\nIn min's build heap, size:" << arrSize << "\n";
 
-    for (int i=0; i<size; i++) {
-        m_array[i] = data[i];
-    }
-    for (int i=m_size; 0<i; i--) {
-        if (!isLeaf(i)) {
-            ;
+        for (int i=m_size; 0<i; i--) {
+            if (!isLeaf(i)) {
+                ;
+            }
         }
     }
 }

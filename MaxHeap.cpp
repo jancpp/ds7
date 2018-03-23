@@ -17,9 +17,8 @@ MaxHeap::~MaxHeap() {
 //    }
 }
 
-void MaxHeap::buildheap(int data[], int size) {
+void MaxHeap::buildheap() {
     
-    std::cout << "\nIn max's build heap, size:" << size << "\n";
 }
 
 bool MaxHeap::insert(int key) {

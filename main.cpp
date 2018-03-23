@@ -6,7 +6,6 @@
 
 #include "MinHeap.h"
 #include "MaxHeap.h"
-#include <fstream>
 #include <iostream>
 #include <string>
 
@@ -14,7 +13,7 @@ int main(int argc, char **argv) {
     // Check for correct terminal input
     std::string heaptype = argv[1];
     if ((argc != 3) && ((heaptype != "min") || (heaptype != "max")) ) {
-        std::cout << "To run program type:\n ./Lab07 max data.txt for max heap\nor ./Lab07 min data.txt for min heap\n\n";
+        std::cout << "To run program type:\n ./Lab07 max for max heap\nor ./Lab07 min for min heap\n\n";
         return 0;
     }
 
@@ -28,30 +27,7 @@ int main(int argc, char **argv) {
         return 0;
     }
 
-    int arrSize = 0;
-    int number = -1;
-    int data[250];
-
-    // Read data from a file into array
-    std::ifstream inputFile;
-    inputFile.open(argv[2]);
-    if (!inputFile) {
-        inputFile.close();
-        std::cout << "Error reading the input file.\n";
-         delete heap;
-        return 0;
-    } else {
-        
-        std::cout << "Data.txt elements:";
-        while(inputFile >> number) {
-            std::cout << " " << number;
-            data[arrSize] = number;
-            arrSize++;
-        }
-        inputFile.close();
-        heap->buildheap(data, arrSize);
-    }
-    
+    heap->buildheap();
     heap->levelorder(); //TODO remove
 
     // User interacation

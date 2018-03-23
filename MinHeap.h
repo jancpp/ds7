@@ -51,10 +51,10 @@ public:
     MinHeap();
     ~MinHeap();
     
-    // @pre:    No three
-    // @Post:   Unsorted full tree
-    // @Return: element
-    void buildheap(int data[], int size);
+    // @pre:    None
+    // @Post:   Heap
+    // @Return: None
+    void buildheap();
     
     // @pre:    5 - minHeap
     // @Post:   New element inserted into the minHeap:    as root if empty,
