@@ -15,36 +15,37 @@ class MinHeap: public Heap {
     
 private:
     int m_array[250];
+    int m_size;
     
 //    // @pre:    5 - minHeap
-//    // @post:   inserting node in root
-//    // @return: Node pointer of element to be inserted
-//    void inserthelper(int key, Node *root);
+//    // @post:   inserting element in root
+//    // @return: element pointer of element to be inserted
+//    void inserthelper(int key, element *root);
 //
 //    // @pre:    5 - minHeap
 //    // @post:   Printed keys in level traversal
 //    // @return: None
-//    void levelorderhelper(Node *root);
+//    void levelorderhelper(element *root);
 //
 //    // @pre:    5 - minHeap
 //    // @post:   Serching in root
-//    // @return: Node pointer of element to be found
-//    Node *findminhelper(Node *root);
+//    // @return: element pointer of element to be found
+//    element *findminhelper(element *root);
 //
 //    // @pre:    5 - maxHeap
 //    // @post:   Searching in root
-//    // @return: Node pointer of element to be found
-//    Node *findmaxhelper(Node *root);
+//    // @return: element pointer of element to be found
+//    element *findmaxhelper(element *root);
 //
 //    // @pre:    5 - minHeap
-//    // @post:   Found node from the minHeap
+//    // @post:   Found element from the minHeap
 //    // @return: True if found, false otherwise
-//    Node *findhelper(int key, Node *root);
+//    element *findhelper(int key, element *root);
 //
 //    // @pre:    5 - minHeap
-//    // @post:   deleted node from the minHeap
+//    // @post:   deleted element from the minHeap
 //    // @return: True if deleted, false otherwise
-//    bool deletehelper(int key, Node *root);
+//    bool deletehelper(int key, element *root);
     
 public:
     MinHeap();
@@ -52,13 +53,13 @@ public:
     
     // @pre:    No three
     // @Post:   Unsorted full tree
-    // @Return: Node
+    // @Return: element
     void buildheap(int data[], int size);
     
     // @pre:    5 - minHeap
-    // @Post:   New node inserted into the minHeap:    as root if empty,
-    //                                              as first node if key is smaller then root key
-    //                                              as third node if key is larger then root key
+    // @Post:   New element inserted into the minHeap:    as root if empty,
+    //                                              as first element if key is smaller then root key
+    //                                              as third element if key is larger then root key
     //                                              as second otherwise
     // @Return: True if success, false otherwise
     bool insert(int key);
@@ -80,24 +81,28 @@ public:
     
     // @pre:    5 - minHeap
     // @post:   Found the smallest element in the 5 - minHeap
-    // @return: A pointer to teh smallest node, nullptr if not found.
+    // @return: A pointer to teh smallest element, nullptr if not found.
     int findmin();
     
     // @pre:    5 - minHeap
     // @post:   Found the largest element in the 5 - minHeap
-    // @return: A pointer to the largest node, nullptr if not found.
+    // @return: A pointer to the largest element, nullptr if not found.
     int findmax();
     
     // // @pre:    5 - minHeap
-    // // @post:   Found the node with key in the minHeap
-    // // @return: True if node was in minHeap, false if not found.
-    // Node *find(int key);
+    // // @post:   Found the element with key in the minHeap
+    // // @return: True if element was in minHeap, false if not found.
+    // element *find(int key);
     
     // @pre:    5 - minHeap
-    // @post:   Printed out all the elements of the minHeap using levelorder traversal.
+    // @post:   Printed out all the elements of the min heap by level  using levelorder traversal.
     // @return: None
     void levelorder();
-
+    
+    // @pre:    5 - minHeap
+    // @post:   element.
+    // @return: True if element is a leaf, false otherwise
+    bool isLeaf(int index);
     
 };
 

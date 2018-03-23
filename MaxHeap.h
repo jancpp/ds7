@@ -14,7 +14,7 @@ class MaxHeap: public Heap {
 
 private:
     int m_array[250];
-
+    int m_size;
 //
 //    // @pre:    5 - maxHeap
 //    // @post:   Inserting node in root

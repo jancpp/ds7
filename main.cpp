@@ -133,13 +133,11 @@ int main(int argc, char **argv) {
 //                }
 //                break;
                 case 6:
-                std::cout << "level order: ";
-//                heap->levelorder();
+                heap->levelorder();
                 break;
-//                case 9:
-//                std::cout << "Bye bye!\n";
-//                delete minHeap;
-//                return (0);
+                case 7:
+                std::cout << "Bye bye!\n";
+                return (0);
             default:
                 std::cout << "\nError: Wrong input.\n\n";
         }

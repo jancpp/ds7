@@ -6,7 +6,7 @@ Date:   3/12/2018
 
 #include "MinHeap.h"
 
-MinHeap::MinHeap() {
+MinHeap::MinHeap(): m_size(0) {
     for (int i=0; i<=sizeof(m_array); i++) {
         m_array[i] = -1;
     }
@@ -19,18 +19,30 @@ MinHeap::~MinHeap() {
 
 void MinHeap::buildheap(int data[], int size) {
     std::cout << "\nIn min's build heap, size:" << size << "\n";
+    
     for (int i=0; i<size; i++) {
         m_array[i] = data[i];
     }
+    for (int i=m_size; 0<i; i--) {
+        if (!isLeaf(i)) {
+            ;
+        }
+    }
 }
 
-bool isLeaf(int pos) {
+void swap(int *array, int index1, int index2) {
+//    int temp = pos1;
+//    pos1 = pos2;
+//    pos2 = temp;
+}
+
+bool isLeaf(int index) {
     // The jth child of A[i] is at A[5i+j], 1<= j <=5, if it exists.
     bool leaf = true;
-//    int firstchild = m_array[5*pos+1];
-//    if (firstchild == -1) {
-//        leaf = false;
-//    }
+//        int firstchild = m_array[5*index+1];
+//        if (firstchild == -1) {
+//            leaf = false;
+//        }
     return leaf;
 }
 
@@ -310,5 +322,12 @@ void MinHeap::levelorder() {
 //    return (node->first() == nullptr );
 //}
 
+bool MinHeap::isLeaf(int index) {
+    bool isleaf = false;
+    if ((5*index) >= (m_size-1)) {
+        isleaf = true;
+    }
+    return isleaf;
+}
 
 
