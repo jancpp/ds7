@@ -30,6 +30,7 @@ int main(int argc, char **argv) {
 
     int arrSize = 0;
     int number = -1;
+    int data[250];
 
     // Read data from a file into array
     std::ifstream inputFile;
@@ -40,7 +41,7 @@ int main(int argc, char **argv) {
          delete heap;
         return 0;
     } else {
-        int data[250];
+        
         std::cout << "Data.txt elements:";
         while(inputFile >> number) {
             std::cout << " " << number;

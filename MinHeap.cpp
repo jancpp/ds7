@@ -7,7 +7,7 @@ Date:   3/12/2018
 #include "MinHeap.h"
 
 MinHeap::MinHeap(): m_size(0) {
-    for (size_t i=0; i<=sizeof(m_array); i++) {
+    for (size_t i=0; i<sizeof(m_array); i++) {
         m_array[i] = -1;
     }
 }
