@@ -13,8 +13,8 @@ Date:   3/12/2018
 class MaxHeap: public Heap {
 
 private:
-    int m_array[250];
-    int m_size;
+    int m_array;
+    int m_size[250];
 //
 //    // @pre:    5 - maxHeap
 //    // @post:   Inserting node in root
@@ -54,7 +54,7 @@ public:
     // @post:   Unsorted tree
     // @return: None
     void buildheap();
-    
+
 	// @pre:    Binary search maxHeap
 	// @Post:   New node inserted into the maxHeap:    as root if empty,
 	//                                              as first node if key is smaller then root key
@@ -87,8 +87,8 @@ public:
 	// @post:   Printed out all the elements of the maxHeap using levelorder traversal.
 	// @return: None
 	void levelorder();
-    
-    
+
+
 
 };
 

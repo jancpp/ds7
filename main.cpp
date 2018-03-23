@@ -12,7 +12,7 @@
 int main(int argc, char **argv) {
     // Check for correct terminal input
     std::string heaptype = argv[1];
-    if ((argc != 3) && ((heaptype != "min") || (heaptype != "max")) ) {
+    if ((argc != 2) && ((heaptype != "min") || (heaptype != "max")) ) {
         std::cout << "To run program type:\n ./Lab07 max for max heap\nor ./Lab07 min for min heap\n\n";
         return 0;
     }
@@ -106,13 +106,13 @@ int main(int argc, char **argv) {
                 break;
                 case 7:
                 std::cout << "Bye bye!\n";
-                delete heap;
+                // delete heap;
                 return (0);
             default:
                 std::cout << "\nError: Wrong input.\n\n";
         }
     }
 
-     delete heap;
+     // delete heap;
     return 0;
 }

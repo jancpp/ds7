@@ -7,9 +7,9 @@ Date:   3/12/2018
 #include "MaxHeap.h"
 
 MaxHeap::MaxHeap() {
-    for (int i=0; i<sizeof(m_array); i++) {
-        m_array[i] = -1;
-    }
+    // for (int i=0; i<sizeof(m_array); i++) {
+    //     m_array[i] = -1;
+    // }
 }
 MaxHeap::~MaxHeap() {
 //    while (m_root != nullptr) {
@@ -18,7 +18,7 @@ MaxHeap::~MaxHeap() {
 }
 
 void MaxHeap::buildheap() {
-    
+
 }
 
 bool MaxHeap::insert(int key) {
@@ -301,4 +301,3 @@ void MaxHeap::levelorder() {
 //        }
 //    }
 //}
-
