@@ -17,11 +17,11 @@ int main(int argc, char **argv) {
         return 0;
     }
 
-    Heap *heap;
+    MinHeap *heap;
     if (heaptype == "min") {
         heap = new MinHeap();
     } else if (heaptype == "max") {
-        heap = new MaxHeap();
+//        heap = new MaxHeap();
     } else {
         std::cout << "Wrong heap type was entered. (min/max)\n";
         return 0;
@@ -106,13 +106,13 @@ int main(int argc, char **argv) {
                 break;
                 case 7:
                 std::cout << "Bye bye!\n";
-                // delete heap;
+                 delete heap;
                 return (0);
             default:
                 std::cout << "\nError: Wrong input.\n\n";
         }
     }
 
-     // delete heap;
+      delete heap;
     return 0;
 }

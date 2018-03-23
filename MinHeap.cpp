@@ -21,52 +21,44 @@ MinHeap::~MinHeap() {
 }
 
 void MinHeap::buildheap() {
-        // for (size_t i=0; i<sizeof(m_array); i++) {
-        //         std::cout << m_array[i] << " ";
-        // }
 
-        // std::cout << "\nSize of m_array : " << sizeof(m_array) << "\n";
+//         Read data from a file into array
+         std::ifstream inputFile;
+         int number = -1;
+         inputFile.open("data.txt");
+         if (!inputFile) {
+                 inputFile.close();
+                 std::cout << "Error reading the input file.\n";
+         } else {
+                 std::cout << "Data.txt elements:";
+                 while(inputFile >> number) {
+                         std::cout << " " << number;
+                         m_array[m_size] = number;
+                         m_size++;
+                 }
+                 inputFile.close();
 
-        // Read data from a file into array
-        // std::ifstream inputFile;
-        // int number = -1;
-        // int arrSize = 0;
-        // inputFile.open("data.txt");
-        // if (!inputFile) {
-        //         inputFile.close();
-        //         std::cout << "Error reading the input file.\n";
-        // } else {
-        //         std::cout << "Data.txt elements:";
-        //         while(inputFile >> number) {
-        //                 std::cout << " " << number;
-        //                 m_array[arrSize] = number;
-        //                 arrSize++;
-        //         }
-        //
-        //         inputFile.close();
-        //         std::cout << "\nIn min's build heap, size:" << arrSize << "\n";
-
-                // for (int i=m_size; 0<i; i--) {
-                //         if (!isLeaf(i)) {
-                //                 ;
-                //         }
-                // }
-                // }
+                 for (int i=m_size; 0<i; i--) {
+                         if (!isLeaf(i)) {
+                                 ;
+                         }
+                 }
+            }
         }
 
         void swap(int *array, int index1, int index2) {
-                //    int temp = pos1;
-                //    pos1 = pos2;
-                //    pos2 = temp;
+                    int temp = array[index1];
+                    array[index1] = array[index2];
+                    array[index2] = temp;
         }
 
-        bool isLeaf(int index) {
+        bool isLeaf(int *array, int index) {
                 // The jth child of A[i] is at A[5i+j], 1<= j <=5, if it exists.
                 bool leaf = true;
-                //        int firstchild = m_array[5*index+1];
-                //        if (firstchild == -1) {
-                //            leaf = false;
-                //        }
+                        int firstchild = array[5*index+1];
+                        if (firstchild == -1) {
+                            leaf = false;
+                        }
                 return leaf;
         }
 
@@ -310,28 +302,25 @@ void MinHeap::buildheap() {
 
 
         void MinHeap::levelorder() {
-                //    for (int i = 0; i<300; i++) {
-                //        std::cout << i << " ";
-                //    }
-                // int levels = 1;
-                // int newLevel = 0;
-                // //    int newNumber = 0;
-                //
-                // //    std::cout << m_array[0] << "\n";
-                // for (int i=0; i<m_size; i++) {
-                //         if(m_array[i] != -1) {
-                //                 std::cout << m_array[i] << " ";
-                //                 if ((newLevel == i) && ((i%5 == 0) || (i == 5))) {
-                //                         std::cout << "\n";
-                //                         newLevel += pow(5, levels);
-                //                         levels++;
-                //                         //                newNumber += 5;
-                //                 } else if ((i%5 == 0) && (m_array[i+1] != -1)) {
-                //                         std::cout << "- ";
-                //                 }
-                //         }
-                //
-                // }
+                 int levels = 1;
+                 int newLevel = 0;
+                 //    int newNumber = 0;
+            
+                 //    std::cout << m_array[0] << "\n";
+                 for (int i=0; i<m_size; i++) {
+                         if(m_array[i] != -1) {
+                                 std::cout << m_array[i] << " ";
+                                 if ((newLevel == i) && ((i%5 == 0) || (i == 5))) {
+                                         std::cout << "\n";
+                                         newLevel += pow(5, levels);
+                                         levels++;
+                                         //                newNumber += 5;
+                                 } else if ((i%5 == 0) && (m_array[i+1] != -1)) {
+                                         std::cout << "- ";
+                                 }
+                         }
+                
+                 }
         }
 
         //void MinHeap::levelorderhelper(Node *root) {

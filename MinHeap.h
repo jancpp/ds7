@@ -12,41 +12,7 @@
 #include <queue>
 #include <math.h>
 
-class MinHeap: public Heap {
-
-private:
-    int m_array[250];
-    int m_size;
-
-//    // @pre:    5 - minHeap
-//    // @post:   inserting element in root
-//    // @return: element pointer of element to be inserted
-//    void inserthelper(int key, element *root);
-//
-//    // @pre:    5 - minHeap
-//    // @post:   Printed keys in level traversal
-//    // @return: None
-//    void levelorderhelper(element *root);
-//
-//    // @pre:    5 - minHeap
-//    // @post:   Serching in root
-//    // @return: element pointer of element to be found
-//    element *findminhelper(element *root);
-//
-//    // @pre:    5 - maxHeap
-//    // @post:   Searching in root
-//    // @return: element pointer of element to be found
-//    element *findmaxhelper(element *root);
-//
-//    // @pre:    5 - minHeap
-//    // @post:   Found element from the minHeap
-//    // @return: True if found, false otherwise
-//    element *findhelper(int key, element *root);
-//
-//    // @pre:    5 - minHeap
-//    // @post:   deleted element from the minHeap
-//    // @return: True if deleted, false otherwise
-//    bool deletehelper(int key, element *root);
+class MinHeap{ // TODO ////////////////////////////////////////////////}: public Heap {
 
 public:
     MinHeap();
@@ -104,7 +70,40 @@ public:
     // @post:   element.
     // @return: True if element is a leaf, false otherwise
     bool isLeaf(int index);
-
+    
+private:
+    int m_array[250];
+    int m_size;
+    
+    //    // @pre:    5 - minHeap
+    //    // @post:   inserting element in root
+    //    // @return: element pointer of element to be inserted
+    //    void inserthelper(int key, element *root);
+    //
+    //    // @pre:    5 - minHeap
+    //    // @post:   Printed keys in level traversal
+    //    // @return: None
+    //    void levelorderhelper(element *root);
+    //
+    //    // @pre:    5 - minHeap
+    //    // @post:   Serching in root
+    //    // @return: element pointer of element to be found
+    //    element *findminhelper(element *root);
+    //
+    //    // @pre:    5 - maxHeap
+    //    // @post:   Searching in root
+    //    // @return: element pointer of element to be found
+    //    element *findmaxhelper(element *root);
+    //
+    //    // @pre:    5 - minHeap
+    //    // @post:   Found element from the minHeap
+    //    // @return: True if found, false otherwise
+    //    element *findhelper(int key, element *root);
+    //
+    //    // @pre:    5 - minHeap
+    //    // @post:   deleted element from the minHeap
+    //    // @return: True if deleted, false otherwise
+    //    bool deletehelper(int key, element *root);
 };
 
 #endif

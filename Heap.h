@@ -15,7 +15,7 @@ private:
 public:
 
 //    Heap();
-    // virtual ~Heap() {}
+     virtual ~Heap() {}
 
     virtual void buildheap() = 0;
 
