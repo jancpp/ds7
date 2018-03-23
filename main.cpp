@@ -59,7 +59,8 @@ int main(int argc, char **argv) {
 
     
     
-
+    heap->levelorder(); //TODO
+    
     // User interacation
     int choice = -1;
 
@@ -143,7 +144,7 @@ int main(int argc, char **argv) {
                 std::cout << "\nError: Wrong input.\n\n";
         }
     }
-
+    
     delete heap;
     return 0;
 }

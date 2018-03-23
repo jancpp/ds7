@@ -7,15 +7,13 @@ Date:   3/12/2018
 #ifndef MAX_HEAP
 #define MAX_HEAP
 
-
-#include "Node.h"
 #include "Heap.h"
 #include <iostream>
 
 class MaxHeap: public Heap {
 
 private:
-	Node *m_root;
+    int m_array[250];
 
 //
 //    // @pre:    5 - maxHeap
@@ -78,22 +76,19 @@ public:
 	// @pre:    5 - maxHeap
 	// @post:   Found the smallest element in the 5 - maxHeap
 	// @return: A pointer to teh smallest node, nullptr if not found.
-	Node *findmin();
+	int findmin();
 
 	// @pre:    5 - maxHeap
 	// @post:   Found the largest element in the 5 - maxHeap
 	// @return: A pointer to the largest node, nullptr if not found.
-	Node *findmax();
-
-	// @pre:    5 - maxHeap
-	// @post:   Found the node with key in the maxHeap
-	// @return: True if node was in maxHeap, false if not found.
-	Node *find(int key);
+	int findmax();
 
 	// @pre:    5 - maxHeap
 	// @post:   Printed out all the elements of the maxHeap using levelorder traversal.
 	// @return: None
 	void levelorder();
+    
+    
 
 };
 

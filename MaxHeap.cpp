@@ -6,15 +6,20 @@ Date:   3/12/2018
 
 #include "MaxHeap.h"
 
-MaxHeap::MaxHeap(): m_root(nullptr) {}
-MaxHeap::~MaxHeap() {
-    while (m_root != nullptr) {
-        deletemin();
+MaxHeap::MaxHeap() {
+    for (int i=0; i<sizeof(m_array); i++) {
+        m_array[i] = -1;
     }
+}
+MaxHeap::~MaxHeap() {
+//    while (m_root != nullptr) {
+//        deletemin();
+//    }
 }
 
 void MaxHeap::buildheap(int data[], int size) {
     
+    std::cout << "\nIn max's build heap, size:" << size << "\n";
 }
 
 bool MaxHeap::insert(int key) {
@@ -203,12 +208,14 @@ bool MaxHeap::deletemax() {
 //    return deleted;
 //}
 
-Node *MaxHeap::findmin() {
+int MaxHeap::findmin() {
+    int min = -1;
 //    if (m_root == nullptr) {
-        return m_root;
+//        return m_root;
 //    } else {
 ////        return findminhelper(m_root);
 //    }
+    return min;
 }
 
 //Node *MaxHeap::findminhelper(Node *root) {
@@ -222,12 +229,14 @@ Node *MaxHeap::findmin() {
 ////    }
 //}
 
-Node *MaxHeap::findmax() {
+int MaxHeap::findmax() {
+    int max = -1;
 //    if (m_root == nullptr) {
-        return m_root;
+//        return m_root;
 //    } else {
 //        return findminhelper(m_root);
 //    }
+    return max;
 }
 
 //Node *MaxHeap::findmaxhelper(Node *root) {
@@ -267,11 +276,11 @@ Node *MaxHeap::findmax() {
 //}
 
 void MaxHeap::levelorder() {
-    if (m_root == nullptr) {
-        std::cout << "Max heap is empty.\n";
-    } else {
-//        levelorderhelper(m_root);
-    }
+//    if (m_root == nullptr) {
+//        std::cout << "Max heap is empty.\n";
+//    } else {
+////        levelorderhelper(m_root);
+//    }
 }
 
 //void MaxHeap::levelorderhelper(Node *root) {

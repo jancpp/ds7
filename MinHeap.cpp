@@ -6,15 +6,32 @@ Date:   3/12/2018
 
 #include "MinHeap.h"
 
-MinHeap::MinHeap(): m_root(nullptr) {}
-MinHeap::~MinHeap() {
-    while (m_root != nullptr) {
-        deletemin();
+MinHeap::MinHeap() {
+    for (int i=0; i<=sizeof(m_array); i++) {
+        m_array[i] = -1;
     }
+}
+MinHeap::~MinHeap() {
+//    while (m_root != nullptr) {
+//        deletemin();
+//    }
 }
 
 void MinHeap::buildheap(int data[], int size) {
-    
+    std::cout << "\nIn min's build heap, size:" << size << "\n";
+    for (int i=0; i<size; i++) {
+        m_array[i] = data[i];
+    }
+}
+
+bool isLeaf(int pos) {
+    // The jth child of A[i] is at A[5i+j], 1<= j <=5, if it exists.
+    bool leaf = true;
+//    int firstchild = m_array[5*pos+1];
+//    if (firstchild == -1) {
+//        leaf = false;
+//    }
+    return leaf;
 }
 
 bool MinHeap::insert(int key) {
@@ -205,12 +222,14 @@ bool MinHeap::deletemax() {
 //    return deleted;
 //}
 
-Node *MinHeap::findmin() {
+int MinHeap::findmin() {
+    int min = -1;
 //    if (m_root == nullptr) {
-        return m_root;
+//        return m_root;
 //    } else {
 //        return findminhelper(m_root);
 //    }
+    return min;
 }
 
 //Node *MinHeap::findminhelper(Node *root) {
@@ -224,12 +243,14 @@ Node *MinHeap::findmin() {
 ////    }
 //}
 
-Node *MinHeap::findmax() {
+int MinHeap::findmax() {
+    int max = -1;
 //    if (m_root == nullptr) {
-        return m_root;
+//        return m_root;
 //    } else {
 //        return findmaxhelper(m_root);
 //    }
+    return max;
 }
 
 //Node *MinHeap::findmaxhelper(Node *root) {
@@ -253,30 +274,41 @@ Node *MinHeap::findmax() {
 
 
 void MinHeap::levelorder() {
-//    if (m_root == nullptr) {
-//        std::cout << "minHeap is empty.\n";
-//    } else {
-//        levelorderhelper(m_root);
+//    for (int i = 0; i<300; i++) {
+//        std::cout << i << " ";
 //    }
+    int levels = 1;
+    int newLevel = 0;
+//    int newNumber = 0;
+    
+//    std::cout << m_array[0] << "\n";
+    for (int i=0; i<sizeof(m_array); i++) {
+        if(m_array[i] != -1) {
+          std::cout << m_array[i] << " ";
+            if ((newLevel == i) && ((i%5 == 0) || (i == 5))) {
+                std::cout << "\n";
+                newLevel += pow(5, levels);
+                levels++;
+//                newNumber += 5;
+            } else if ((i%5 == 0) && (m_array[i+1] != -1)) {
+                std::cout << "- ";
+            }
+        }
+        
+    }
 }
 
 //void MinHeap::levelorderhelper(Node *root) {
-////    if (root != nullptr) {
-////        std::queue<Node*> queue;
-////        // Enqueue all nodes from level 0 to last level
-////        queue.push(root);
-////        while (!queue.empty()) {
-////            Node *temp = queue.front();
-////            // Print all leaves
-////            if (temp->tag() == 1) {
-////                std::cout << " " << temp->key();
-////            }
-////            queue.pop();
-////
-////            if (temp->first()  != nullptr) { queue.push(temp->first()); }
-////            if (temp->second() != nullptr) { queue.push(temp->second()); }
-////            if (temp->third()  != nullptr) { queue.push(temp->third()); }
-////        }
-////    }
+//    if (root != nullptr) {
+//        std::cout << root->key();
+//    }
+//    if (isLeaf(root)) {
+//        statements
+//    }
 //}
+//bool MinHeap::isLeaf(Node *node) {
+//    return (node->first() == nullptr );
+//}
+
+
 
