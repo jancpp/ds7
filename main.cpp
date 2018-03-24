@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
         return 0;
     }
 
-    MinHeap *heap;
+    MinHeap *heap = nullptr;
     if (heaptype == "min") {
         heap = new MinHeap();
     } else if (heaptype == "max") {
@@ -32,6 +32,7 @@ int main(int argc, char **argv) {
 
     // User interacation
     int choice = -1;
+    int inputkey = -1;
 
     while (choice != 7) {
         std::cout << "\n............................................\n\n";
@@ -48,63 +49,44 @@ int main(int argc, char **argv) {
         std::cin >> choice;
 
         switch (choice) {
-//                case 1:
-//                std::cout << "Enter a number to be inserted: ";
-//                std::cin >> inputkey;
-//                if (!minHeap->insert(inputkey)) {
-//                    std::cout <<" Failed to insert " << inputkey <<
-//                    " into hash table with quadratic probing.\n";
-//                }
-//                break;
-//                case 2:
-//                if (minHeap->deletemin()) {
-//                    std::cout << minHeap->findmin()->key() << " has been deleted from minHeap.\n";
-//                }
-//                break;
-                //  // Reads data from a file
-//                int size = 0;
-//                int number = -1;
-//            case 3:
-//                if (minHeap->deletemin()) {
-//                    std::cout << minHeap->findmin()->key() << " has been deleted from minHeap.\n";
-//                }
-//                break;
-//                case 4:
-//                if (minHeap->findmin() != nullptr) {
-//                    std::cout << "min number in the minHeap is " << minHeap->findmin()->key() << " \n";
-//                } else{
-//                    std::cout << "minHeap is empty\n";
-//                }
-//                break;
-//                case 5:
-//                if (minHeap->findmax()) {
-//                    std::cout << "max number in the minHeap is " << minHeap->findmax()->key() << " \n";
-//                } else{
-//                    std::cout << "minHeap is empty\n";
-//                }
-//                break;
-//                case 6:
-//                std::cout << "Enter a number to be found: ";
-//                std::cin >> inputkey;
-//                if (minHeap->find(inputkey)->key() == inputkey) {
-//                    std::cout << minHeap->find(inputkey)->key() << " exists in the minHeap.\n";
-//                } else {
-//                    std::cout << inputkey << " does not exist in the minHeap.\n";
-//                }
-//                break;
-//                case 7:
-//                std::cout << "Enter a number to be deleted: ";
-//                std::cin >> inputkey;
-//                if (minHeap->delete(inputkey)) {
-//                    std::cout << inputkey << " have been deleted from the minHeap.\n";
-//                } else {
-//                    std::cout << inputkey << " does not exist in the minHeap.\n";
-//                }
-//                break;
-                case 6:
+            case 1:
+                std::cout << "Enter a number to be inserted: ";
+                std::cin >> inputkey;
+                heap->insert(inputkey);
                 heap->levelorder();
                 break;
-                case 7:
+            case 2:
+                heap->deletemin();
+                heap->levelorder();
+                break;
+            case 3:
+            {
+                int min = heap->findmin();
+                if (min == -1) {
+                    std::cout << "\nHeap is empty.\n";
+                } else {
+                    std::cout << "\nMin value: " << min;
+                }
+            }
+                break;
+            case 4:
+                {
+                    int max = heap->findmax();
+                    if (max == -1) {
+                        std::cout << "\nHeap is empty.\n";
+                    } else {
+                        std::cout << "\nMax value: " << max;
+                    }
+                }
+                break;
+            case 5:
+                heap->deletemax();
+                heap->levelorder();
+                break;
+            case 6:
+                heap->levelorder();
+                break;
+            case 7:
                 std::cout << "Bye bye!\n";
                  delete heap;
                 return (0);

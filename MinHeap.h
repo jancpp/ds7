@@ -24,12 +24,9 @@ public:
     void buildheap();
 
     // @pre:    5 - minHeap
-    // @Post:   New element inserted into the minHeap:    as root if empty,
-    //                                              as first element if key is smaller then root key
-    //                                              as third element if key is larger then root key
-    //                                              as second otherwise
-    // @Return: True if success, false otherwise
-    bool insert(int key);
+    // @Post:   Inserted a new element
+    // @Return: None
+    void insert(int key);
 
     // // @pre:    5 - minHeap
     // // @post:   deleted passed key
@@ -38,13 +35,13 @@ public:
 
     // @pre:    5 - minHeap
     // @post:   deleted min key
-    // @return: True if deleted, false otherwise
-    bool deletemin();
+    // @return: None
+    void deletemin();
 
     // @pre:    5 - minHeap
     // @post:   deleted max key
-    // @return: True if deleted, false otherwise
-    bool deletemax();
+    // @return: None
+    void deletemax();
 
     // @pre:    5 - minHeap
     // @post:   Found the smallest element in the 5 - minHeap
@@ -70,15 +67,23 @@ public:
     // @post:   element.
     // @return: True if element is a leaf, false otherwise
     bool isLeaf(int index);
+    void swap(int index1, int index2);
+    void heapify(int index);
+    int childOf(int index, int atPosition);
+    int minChild(int parent);
+    int parentOf(int index);
     
 private:
-    int m_array[250];
+    int m_array[500];
     int m_size;
+    static const int M_K = 5; // for K-ary heap (5-heap)
     
-    //    // @pre:    5 - minHeap
-    //    // @post:   inserting element in root
-    //    // @return: element pointer of element to be inserted
-    //    void inserthelper(int key, element *root);
+    
+    // @pre:    5 - minHeap
+    // @post:   Found the largest index of element in the 5 - minHeap
+    // @return: The index of the largest element
+    int findmaxindex();
+    
     //
     //    // @pre:    5 - minHeap
     //    // @post:   Printed keys in level traversal
