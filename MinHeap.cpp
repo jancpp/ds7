@@ -16,13 +16,6 @@ MinHeap::MinHeap() {
         }
     
 }
-MinHeap::~MinHeap() {
-//    for(int i=0; i < 500; i++)
-//    {
-//        delete m_array[i] ;
-//    }
-//    delete[] m_array;
-}
 
 void MinHeap::buildheap() {
 
@@ -154,11 +147,11 @@ int MinHeap::childOf(int ofIndex, int atPosition) {
         }
 
         int MinHeap::findmin() {
-            int maxVal = -1;
+            int minVal = -1;
             if (m_size > 0) {
-                maxVal = m_array[0];
+                minVal = m_array[0];
             }
-            return maxVal;
+            return minVal;
         }
 
         void MinHeap::levelorder() {

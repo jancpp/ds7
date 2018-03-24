@@ -17,18 +17,19 @@ int main(int argc, char **argv) {
         return 0;
     }
 
-    MinHeap *heap = nullptr;
+    MinHeap *minheap = nullptr;
+    MaxHeap *maxheap = nullptr;
     if (heaptype == "min") {
-        heap = new MinHeap();
+        minheap = new MinHeap();
+        minheap->buildheap();
     } else if (heaptype == "max") {
-//        heap = new MaxHeap();
+        maxheap = new MaxHeap();
+        maxheap->buildheap();
+        maxheap->levelorder(); //TODO remove
     } else {
         std::cout << "Wrong heap type was entered. (min/max)\n";
         return 0;
     }
-
-    heap->buildheap();
-    heap->levelorder(); //TODO remove
 
     // User interacation
     int choice = -1;
@@ -52,49 +53,83 @@ int main(int argc, char **argv) {
             case 1:
                 std::cout << "Enter a number to be inserted: ";
                 std::cin >> inputkey;
-                heap->insert(inputkey);
-                heap->levelorder();
+                if (heaptype == "min") {
+                    minheap->insert(inputkey);
+                    minheap->levelorder();
+                } else if (heaptype == "max") {
+                    maxheap->insert(inputkey);
+                    maxheap->levelorder();
+                }
                 break;
             case 2:
-                heap->deletemin();
-                heap->levelorder();
+                if (heaptype == "min") {
+                    minheap->deletemin();
+                    minheap->levelorder();
+                } else if (heaptype == "max") {
+                    maxheap->deletemin();
+                    maxheap->levelorder();
+                }
                 break;
             case 3:
             {
-                int min = heap->findmin();
-                if (min == -1) {
-                    std::cout << "\nHeap is empty.\n";
-                } else {
-                    std::cout << "\nMin value: " << min;
+                if (heaptype == "min") {
+                    int min = minheap->findmin();
+                    if (min == -1) {
+                        std::cout << "\nHeap is empty.\n";
+                    } else {
+                        std::cout << "\nMin value: " << min;
+                    }
+                } else if (heaptype == "max") {
+                    int min = maxheap->findmin();
+                    if (min == -1) {
+                        std::cout << "\nHeap is empty.\n";
+                    } else {
+                        std::cout << "\nMin value: " << min;
+                    }
                 }
             }
                 break;
             case 4:
                 {
-                    int max = heap->findmax();
-                    if (max == -1) {
-                        std::cout << "\nHeap is empty.\n";
-                    } else {
-                        std::cout << "\nMax value: " << max;
+                    if (heaptype == "min") {
+                        int max = minheap->findmax();
+                        if (max == -1) {
+                            std::cout << "\nHeap is empty.\n";
+                        } else {
+                            std::cout << "\nMax value: " << max;
+                        }
+                    } else if (heaptype == "max") {
+                        int max = maxheap->findmax();
+                        if (max == -1) {
+                            std::cout << "\nHeap is empty.\n";
+                        } else {
+                            std::cout << "\nMax value: " << max;
+                        }
                     }
                 }
                 break;
             case 5:
-                heap->deletemax();
-                heap->levelorder();
+                if (heaptype == "min") {
+                    minheap->deletemax();
+                    minheap->levelorder();
+                } else if (heaptype == "max") {
+                    maxheap->deletemax();
+                    maxheap->levelorder();
+                }
                 break;
             case 6:
-                heap->levelorder();
+                if (heaptype == "min") {
+                    minheap->levelorder();
+                } else if (heaptype == "max") {
+                    maxheap->levelorder();
+                }
                 break;
             case 7:
                 std::cout << "Bye bye!\n";
-                 delete heap;
                 return (0);
             default:
                 std::cout << "\nError: Wrong input.\n\n";
         }
     }
-
-      delete heap;
     return 0;
 }
