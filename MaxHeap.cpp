@@ -35,12 +35,10 @@ void MaxHeap::buildheap() {
             m_size++;
         }
         inputFile.close();
-        levelorder();
-        std::cout << "\n\n";
+        std::cout << "\n";
         for (int i=m_size-1; 0<=i; i--) {
             if (!isLeaf(i)) {
                 heapify(i);
-                levelorder();
             }
         }
     }
@@ -48,8 +46,6 @@ void MaxHeap::buildheap() {
 
 void MaxHeap::heapify(int index) {
     int max = maxChild(index);
-    std::cout << "\n\n i : " << index << "-" << m_array[index];
-    std::cout << "\n>\nmax: " << max << "-" << m_array[max];
     if ((m_array[index] != -1) && (m_array[index] < m_array[max])) {
         swap(index, max);
         heapify(max);
@@ -64,7 +60,6 @@ int MaxHeap::maxChild(int parent) {
             max = child;
         }
     }
-    std::cout << "\n\nmax: " << max << "-" << m_array[max];;
     return max;
 }
 
@@ -106,7 +101,7 @@ void MaxHeap::insert(int key) {
     }
 }
 
-void MaxHeap::deletemin() {
+void MaxHeap::deletemax() {
     if (m_size >  0) {
         m_array[0] = m_array[m_size-1];
         m_size--;
@@ -114,37 +109,37 @@ void MaxHeap::deletemin() {
     }
 }
 
-void MaxHeap::deletemax() {
-    int maxIndex = findmaxindex();
+void MaxHeap::deletemin() {
+    int minIndex = findminindex();
     if (m_size > 0) {
-        m_array[maxIndex] = m_array[m_size-1];
+        m_array[minIndex] = m_array[m_size-1];
         m_array[m_size-1] = -1;
         m_size--;
     }
 }
 
 
-int MaxHeap::findmaxindex() {
-    int max = m_size-1;
+int MaxHeap::findminindex() {
+    int min = m_size-1;
     int i = -1;
     if (m_size >  0) {
         for (i=m_size-1; 0<i; i--) {
             if (isLeaf(i)) {
-                if ((m_array[i] != -1) && (m_array[i] > m_array[max])) {
-                    max = i;
+                if ((m_array[i] != -1) && (m_array[i] < m_array[min])) {
+                    min = i;
                 }
             } else {
                 break;
             }
         }
     }
-    return max;
+    return min;
 }
 
 int MaxHeap::findmin() {
     int minVal = -1;
     if (m_size > 0) {
-        minVal = m_array[findmaxindex()];
+        minVal = m_array[findminindex()];
     } else {
         std::cout << "\nHeap is empty.\n";
     }

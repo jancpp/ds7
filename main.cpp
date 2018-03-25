@@ -25,7 +25,6 @@ int main(int argc, char **argv) {
     } else if (heaptype == "max") {
         maxheap = new MaxHeap();
         maxheap->buildheap();
-        maxheap->levelorder(); //TODO remove
     } else {
         std::cout << "Wrong heap type was entered. (min/max)\n";
         return 0;

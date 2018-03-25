@@ -14,7 +14,6 @@ MinHeap::MinHeap() {
         for (size_t i=0; i<sizeof(m_array); i++) {
                 m_array[i] = -1;
         }
-    
 }
 
 void MinHeap::buildheap() {
@@ -35,7 +34,7 @@ void MinHeap::buildheap() {
                          m_size++;
                  }
                  inputFile.close();
-                 std::cout << "\n\n";
+                 std::cout << "\n";
              for (int i=m_size-1; 0<=i; i--) {
                  if (!isLeaf(i)) {
                      heapify(i);

@@ -17,7 +17,7 @@ public:
     MaxHeap();
     
     // @pre:    File with numbers
-    // @Post:   Min 5-heap
+    // @Post:   Max 5 - heap
     // @Return: None
     void buildheap();
     
@@ -27,12 +27,12 @@ public:
     void insert(int key);
     
     // @pre:    5 - max heap
-    // @post:   deleted min key
+    // @post:   Deleted min key
     // @return: None
     void deletemin();
     
     // @pre:    5 - max heap
-    // @post:   deleted max key
+    // @post:   Deleted max key
     // @return: None
     void deletemax();
     
@@ -89,7 +89,7 @@ private:
     // @pre:    5 - max heap
     // @post:   Found the largest index of element in the 5 - max heap
     // @return: The index of the largest element
-    int findmaxindex();
+    int findminindex();
 };
 
 #endif
