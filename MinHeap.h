@@ -84,7 +84,7 @@ public:
 private:
     int m_array[500];
     int m_size;
-    static const int M_K = 5; // for K-ary heap (5-heap)
+    static const int M_K = 2; // for K-ary heap (5-heap)
     
     // @pre:    5 - min heap
     // @post:   Found the largest index of element in the 5 - min heap
