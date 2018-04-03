@@ -39,7 +39,6 @@ void MaxHeap::buildheap() {
         for (int i=m_size-1; 0<=i; i--) {
             if (!isLeaf(i)) {
                 heapify(i);
-                levelorder();
             }
         }
     }
@@ -65,13 +64,13 @@ int MaxHeap::maxChild(int parent) {
 }
 
 int MaxHeap::childOf(int ofIndex, int atPosition) {
-    // The jth child of A[i] is at A[M_Ki+j], 1<= j <=M_K, if it exists.
+    // The jth child of A[i] is at A[5i+j], 1<= j <=5, if it exists.
     return (M_K * ofIndex + atPosition);
 }
 
 int MaxHeap::parentOf(int index) {
-    // The parent of A[i] is at A[floor((i-1)/M_K)], if it exists.
-    return (floor((index-1) / M_K));
+    // The parent of A[i] is at A[floor((i-1)/5)], if it exists.
+    return (floor((index-1) / 5));
     
 }
 
@@ -82,9 +81,9 @@ void MaxHeap::swap(int index1, int index2) {
 }
 
 bool MaxHeap::isLeaf(int index) {
-    // The jth child of A[i] is at A[M_Ki+j], 1<= j <=M_K, if it exists.
+    // The jth child of A[i] is at A[5i+j], 1<= j <=5, if it exists.
     bool leaf = false;
-    int firstchild = m_array[M_K*index+1];
+    int firstchild = m_array[5*index+1];
     if (firstchild == -1) {
         leaf = true;
     }
@@ -163,11 +162,11 @@ void MaxHeap::levelorder() {
     for (int i=0; i<m_size; i++) {
         if(m_array[i] != -1) {
             std::cout << m_array[i] << " ";
-            if ((newLevel == i) && ((i%M_K == 0) || (i == M_K))) {
+            if ((newLevel == i) && ((i%5 == 0) || (i == 5))) {
                 std::cout << "\n";
-                newLevel += pow(M_K, levels);
+                newLevel += pow(5, levels);
                 levels++;
-            } else if ((i%M_K == 0) && (m_array[i+1] != -1)) {
+            } else if ((i%5 == 0) && (m_array[i+1] != -1)) {
                 std::cout << "- ";
             }
         }
